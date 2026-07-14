@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use or discuss this work, please cite it using the metadata below."
+title: "Ramanujan-Type pi Acceleration and the N-Series Geometric Constant pi_g"
+type: article
+authors:
+  - family-names: Baker
+    given-names: C. Wayne
+date-released: 2026-06-01
+version: preprint-v1
+repository-code: "https://github.com/CWBaker360/ramanujan-pi-nseries-geometric-constant"
+url: "https://github.com/CWBaker360/ramanujan-pi-nseries-geometric-constant"
+abstract: >-
+  A guarded structural comparison between Ramanujan-type modular and
+  hypergeometric acceleration for pi and polygonal N-Series scale
+  cancellation. High-precision tests verify the raw, two-scale, and
+  three-scale convergence orders 2, 4, and 6.
+keywords:
+  - Ramanujan
+  - pi
+  - pi_g
+  - N-series
+  - polygonal approximation
+  - Richardson extrapolation
+  - constructible geometry
+license: proprietary

@@ -1,0 +1,7 @@
+precision_dps: 100
+displayed_scales: [32, 64, 128, 256, 512, 1024]
+order_definition: log2(error at N/2 divided by error at N)
+table_values_passed: True
+N1024_errors_passed: True
+orders_converge_to_2_4_6: True
+verification_passed: True

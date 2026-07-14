@@ -1,0 +1,338 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{booktabs}
+
+\geometry{margin=1in}
+
+\title{Ramanujan-Type $\pi$ Acceleration and the N-Series Geometric Constant $\pi_g$}
+\author{C. Wayne Baker}
+\date{June 1, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Ramanujan's formulas for $\pi$ exhibit extraordinary acceleration through
+modular and hypergeometric structure. The N-Series framework approaches the
+same constant from a different direction: it begins with constructible
+polygonal approximations to the circle and accelerates them by cancelling
+successive even-power error terms. This note compares these two viewpoints.
+Ramanujan-type formulas reveal a deep analytic acceleration mechanism, while
+the N-Series construction defines a geometric limiting constant, denoted
+$\pi_g$, through chordal polygonal refinement. The comparison is
+complementary rather than competitive: Ramanujan's formulas give exceptional
+closed-form series acceleration, while the N-Series gives a constructive
+geometric cancellation pathway to $\pi$.
+Numerical order tests confirm the expected $2,4,6$ convergence ladder for the
+raw, two-scale, and three-scale polygonal approximations.
+\end{abstract}
+
+\section{Classical Polygonal Approximation to Pi}
+
+Let
+\[
+  P_N = N\sin\!\left(\frac{\pi}{N}\right)
+\]
+denote half the perimeter of the regular $N$-gon inscribed in the unit
+circle. Equivalently, $P_N$ is the polygonal chord approximation to the
+semicircumference of the unit circle. Since the semicircumference is $\pi$,
+one has
+\[
+  \lim_{N\to\infty} P_N = \pi .
+\]
+
+\paragraph{Geometric provenance.}
+Although the analytic shorthand $P_N=N\sin(\pi/N)$ contains $\pi$, the
+polygonal construction does not use $\pi$ as input. For the doubling scales
+used below, $P_N$ is constructed as one half of the perimeter of a regular
+inscribed $N$-gon, obtained by repeated chord bisection. The trigonometric
+formula is an analytic description of that constructible length.
+
+Expanding the sine function gives
+\[
+  \sin\!\left(\frac{\pi}{N}\right)
+  = \frac{\pi}{N} - \frac{\pi^3}{6N^3} + \frac{\pi^5}{120N^5}
+    - \frac{\pi^7}{5040N^7} + \cdots .
+\]
+Multiplying by $N$, we obtain
+\[
+  P_N = \pi - \frac{\pi^3}{6N^2} + \frac{\pi^5}{120N^4}
+    - \frac{\pi^7}{5040N^6} + \cdots .
+\]
+Thus the polygonal error has an even-power expansion:
+\[
+  P_N = \pi + \frac{C_2}{N^2} + \frac{C_4}{N^4} + \frac{C_6}{N^6} + \cdots .
+\]
+This even-power structure is the basic target of the N-Series cancellation
+operators.
+
+\section{The Geometric Constant}
+
+The N-Series viewpoint defines $\pi_g$ as the geometric limit obtained from a
+scale-accelerated polygonal sequence. For a fixed integer $k>1$, define
+\[
+  \widehat{P}^{(k)}_N = P_{kN} + \frac{P_{kN}-P_N}{k^2-1} .
+\]
+Because the leading polygonal error is proportional to $N^{-2}$, this
+two-scale operator cancels the $N^{-2}$ term exactly.
+
+Indeed, suppose
+\[
+  P_N = \pi + \frac{C_2}{N^2} + \frac{C_4}{N^4} + O(N^{-6}) .
+\]
+Then
+\[
+  P_{kN} = \pi + \frac{C_2}{k^2N^2} + \frac{C_4}{k^4N^4} + O(N^{-6}) .
+\]
+Substituting into the two-scale expression gives
+\[
+  \widehat{P}^{(k)}_N = \pi + O(N^{-4}) .
+\]
+The accelerated geometric constant is then
+\[
+  \pi_g = \lim_{N\to\infty} \widehat{P}^{(k)}_N .
+\]
+Since $\widehat{P}^{(k)}_N$ tends to $\pi$, it follows that
+\[
+  \pi_g = \pi .
+\]
+
+The significance of $\pi_g$ is not that it defines a different numerical
+constant. Rather, it defines $\pi$ through a purely geometric
+scale-cancellation process. The constant is recovered from chordal polygonal
+geometry, and the acceleration follows from the even-power error structure of
+the polygonal approximation.
+
+\section{Higher-Order N-Series Cancellation}
+
+The same idea extends to more scales. Using the three scales $N$, $2N$, and
+$4N$, define
+\[
+  \widehat{P}^{(3)}_N
+  = \frac{1}{45}\,P_N - \frac{4}{9}\,P_{2N} + \frac{64}{45}\,P_{4N} .
+\]
+The weights sum to $1$:
+\[
+  \frac{1}{45} - \frac{4}{9} + \frac{64}{45} = 1 .
+\]
+They also cancel the $N^{-2}$ and $N^{-4}$ terms:
+\[
+  \frac{1}{45} - \frac{4}{9}\cdot\frac{1}{2^2}
+  + \frac{64}{45}\cdot\frac{1}{4^2} = 0,
+\]
+and
+\[
+  \frac{1}{45} - \frac{4}{9}\cdot\frac{1}{2^4}
+  + \frac{64}{45}\cdot\frac{1}{4^4} = 0 .
+\]
+Consequently,
+\[
+  \widehat{P}^{(3)}_N = \pi + O(N^{-6}) .
+\]
+
+This is the geometric analogue of acceleration. The approximation is not
+improved by adding more analytic terms to a series, but by combining the same
+geometric construction at multiple scales so that the leading error terms
+cancel exactly.
+
+\section{Numerical Validation of the Geometric Acceleration}
+
+To verify the predicted cancellation orders, we computed the raw polygonal
+approximation $P_N$, the two-scale approximation $\widehat{P}^{(2)}_N$, and
+the three-scale approximation $\widehat{P}^{(3)}_N$ using high-precision
+arithmetic. For any approximation $A_N$, the observed order reported at
+scale $N$ is
+\[
+  p_N(A)=\log_2\!\left(
+  \frac{|A_{N/2}-\pi|}{|A_N-\pi|}
+  \right).
+\]
+Thus each displayed row compares the errors at scales $N/2$ and $N$. The
+observed orders are shown in Table~\ref{tab:pi-g-orders}.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{cccc}
+\toprule
+$N$ & Raw order & Two-scale order & Three-scale order \\
+\midrule
+$32$   & $1.99791411$ & $3.99875845$ & $5.99923958$ \\
+$64$   & $1.99947855$ & $3.99968962$ & $5.99980989$ \\
+$128$  & $1.99986964$ & $3.99992240$ & $5.99995247$ \\
+$256$  & $1.99996741$ & $3.99998060$ & $5.99998812$ \\
+$512$  & $1.99999185$ & $3.99999515$ & $5.99999703$ \\
+$1024$ & $1.99999796$ & $3.99999879$ & $5.99999926$ \\
+\bottomrule
+\end{tabular}
+\caption{Observed convergence orders for the raw polygonal approximation, the two-scale N-Series approximation, and the three-scale N-Series approximation.}
+\label{tab:pi-g-orders}
+\end{table}
+
+The final row gives the observed orders
+\[
+  1.99999796, \qquad 3.99999879, \qquad 5.99999926,
+\]
+for the raw, two-scale, and three-scale approximations respectively. This
+confirms the predicted cancellation structure:
+\[
+  P_N-\pi = O(N^{-2}),
+\]
+\[
+  \widehat{P}^{(2)}_N-\pi = O(N^{-4}),
+\]
+and
+\[
+  \widehat{P}^{(3)}_N-\pi = O(N^{-6}) .
+\]
+
+For completeness, the corresponding absolute errors at $N=1024$ are
+\[
+  4.92831263353783379\times 10^{-6},
+\]
+\[
+  5.79840008299119192\times 10^{-13},
+\]
+and
+\[
+  8.12154741379365833\times 10^{-21} .
+\]
+Thus the numerical data support the theoretical interpretation of $\pi_g$:
+the geometric constant is recovered not merely by polygonal convergence, but
+by a scale-cancellation ladder that removes successive even-power error terms.
+
+\section{Ramanujan-Type Pi Acceleration}
+
+Ramanujan's formulas for $\pi$ arise from a very different source. His series
+for $1/\pi$ are connected to modular equations, elliptic integrals, and
+hypergeometric functions. A representative Ramanujan-type structure is
+\[
+  \frac{1}{\pi} = \sum_{n=0}^{\infty} A_n,
+\]
+where the coefficients $A_n$ contain factorial or hypergeometric factors
+together with rapidly decaying modular powers.
+
+A famous example from Ramanujan's 1914 work has the form
+\[
+  \frac{1}{\pi}
+  = \frac{2\sqrt{2}}{9801}
+    \sum_{n=0}^{\infty}
+    \frac{(4n)!\,(1103+26390n)}{(n!)^4\,396^{4n}} .
+\]
+This formula gains many digits per term. Its acceleration is not polygonal or
+chordal; it comes from the analytic and modular structure behind the series.
+Ramanujan acceleration is modular and analytic, whereas N-Series acceleration
+is geometric and scale-cancellative.
+
+\section{Comparison of the Two Viewpoints}
+
+The two approaches should not be treated as competing approximations in the
+ordinary numerical sense. Ramanujan's formula is vastly faster than raw
+polygonal approximation and remains one of the most remarkable analytic
+accelerations for $\pi$. The N-Series contribution is different: it shows that
+high-order acceleration can also arise from exact cancellation inside a purely
+geometric sequence.
+
+The comparison is therefore structural. Ramanujan's method reveals that $\pi$
+is accessible through modular and hypergeometric identities. The N-Series
+method reveals that $\pi$ is also accessible through constructible polygonal
+geometry equipped with scale-cancellation operators.
+
+In the Ramanujan setting, the acceleration is hidden in the modular
+transformation. In the N-Series setting, the acceleration is visible in the
+moment conditions imposed on the scale weights. For the three-scale operator,
+these conditions are
+\[
+  \sum_{j=0}^{2} w_j = 1,
+  \qquad
+  \sum_{j=0}^{2} \frac{w_j}{m_j^{2}} = 0,
+  \qquad
+  \sum_{j=0}^{2} \frac{w_j}{m_j^{4}} = 0,
+\]
+with scale factors
+\[
+  m_0=1, \qquad m_1=2, \qquad m_2=4 .
+\]
+This cancellation structure is algebraic, but it acts on a geometric sequence.
+
+\section{Interpretation}
+
+The N-Series does not improve Ramanujan's formula in the sense of producing a
+faster numerical series for $\pi$. Ramanujan's formulas are already
+extraordinarily efficient. Instead, the N-Series provides a complementary
+geometric interpretation of acceleration: the leading error terms in a
+constructible sequence can be removed exactly by combining multiple scales.
+
+This distinction is important for positioning the work. The claim is not that
+polygonal acceleration replaces modular acceleration. The claim is that both
+expose hidden structure. Ramanujan exposes hidden analytic structure in
+elliptic and modular functions; the N-Series exposes hidden even-power error
+structure in geometric approximations.
+
+Thus the natural bridge is
+\[
+  \text{Ramanujan acceleration}
+  \quad\longleftrightarrow\quad
+  \text{N-Series acceleration},
+\]
+where Ramanujan's acceleration is analytic and modular, while the N-Series
+acceleration is geometric and constructive.
+\section{Limitations}
+
+This note is a structural comparison, not a claim that polygonal N-Series
+acceleration competes numerically with Ramanujan-type series.  Ramanujan's
+formulas are analytic, modular, and extraordinarily fast.  The N-Series
+construction has a different purpose: it shows that exact high-order
+acceleration can also arise from geometric scale cancellation.
+
+The numerical tests verify the predicted cancellation orders for the tested
+polygonal sequence, but they do not replace the analytic theory behind
+Ramanujan's formulas.  The comparison is therefore complementary: one
+mechanism is modular and hypergeometric, while the other is geometric and
+scale-cancellative.
+
+\section{Conclusion}
+
+Ramanujan-type formulas and the N-Series construction give two distinct
+pathways to the same constant $\pi$. Ramanujan's pathway is analytic, modular,
+and hypergeometric. The N-Series pathway is geometric, chordal, and
+constructive. In the N-Series setting, $\pi_g$ is not a new constant but a
+geometric recovery of $\pi$ through scale-cancelled polygonal approximations.
+
+The significance of this comparison is complementary. Ramanujan's formulas
+demonstrate the power of modular analytic acceleration, while the N-Series
+demonstrates that exact multi-scale cancellation can also accelerate purely
+geometric constructions. Together, they point to a broader principle: rapid
+convergence often arises when a hidden structure allows the leading error
+terms to be cancelled rather than merely reduced.
+
+\begin{thebibliography}{9}
+
+\bibitem{ramanujan}
+S. Ramanujan,
+``Modular equations and approximations to $\pi$,''
+\emph{Quarterly Journal of Mathematics}, 45, 1914, pp.\ 350--372.
+
+\bibitem{borwein}
+J. M. Borwein and P. B. Borwein,
+\emph{Pi and the AGM: A Study in Analytic Number Theory and Computational
+Complexity}.
+Wiley, 1987.
+
+\bibitem{richardson}
+L. F. Richardson,
+``The approximate arithmetical solution by finite differences of physical
+problems,''
+\emph{Philosophical Transactions of the Royal Society A}, 210, 1911,
+pp.\ 307--357.
+
+\bibitem{archimedes}
+Archimedes,
+\emph{Measurement of a Circle}.
+
+\end{thebibliography}
+
+\end{document}
