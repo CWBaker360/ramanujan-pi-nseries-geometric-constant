@@ -8,7 +8,7 @@
 
 \title{Ramanujan-Type $\pi$ Acceleration and the N-Series Geometric Constant $\pi_g$}
 \author{C. Wayne Baker}
-\date{June 1, 2026}
+\date{June 1, 2026; revised November 2, 2026 (v1.1)}
 
 \begin{document}
 
@@ -226,6 +226,30 @@ This formula gains many digits per term. Its acceleration is not polygonal or
 chordal; it comes from the analytic and modular structure behind the series.
 Ramanujan acceleration is modular and analytic, whereas N-Series acceleration
 is geometric and scale-cancellative.
+
+section{Quantitative comparison and claim boundary}
+For Ramanujan's displayed series, write
+\[
+t_n=\frac{(4n)!(1103+26390n)}{(n!)^4\,396^{4n}}.
+\]
+Then
+\[
+\frac{t_{n+1}}{t_n}=
+\frac{(4n+1)(4n+2)(4n+3)(4n+4)}{(n+1)^4\,396^4}
+\frac{1103+26390(n+1)}{1103+26390n},
+\]
+so the limiting ratio is \(1/99^4\), corresponding to
+\(4\log_{10}(99)\approx7.98\) decimal digits per summand.
+This term-wise geometric reduction differs from the N-Series
+algebraic orders 2, 4 and 6 as polygonal resolution increases.
+The two are not comparable cost metrics.
+
+On the doubling ladder \(N=4\cdot2^j\), the polygon lengths
+and their finite rational linear combinations are constructible.
+The limit \(\pi_g=\pi\) is not thereby constructible.
+The polygonal expansion, Richardson cancellation, and Ramanujan
+identity are classical. No priority, new modular identity,
+or performance superiority is claimed here.
 
 \section{Comparison of the Two Viewpoints}
 
