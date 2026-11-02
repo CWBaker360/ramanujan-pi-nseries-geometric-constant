@@ -5,8 +5,8 @@ type: article
 authors:
   - family-names: Baker
     given-names: C. Wayne
-date-released: 2026-06-01
-version: v1.1-draft
+date-released: 2026-11-02
+version: v1.1
 repository-code: "https://github.com/CWBaker360/ramanujan-pi-nseries-geometric-constant"
 url: "https://github.com/CWBaker360/ramanujan-pi-nseries-geometric-constant"
 abstract: >-
