@@ -1,8 +1,8 @@
 # Ramanujan-Type pi Acceleration and the N-Series Geometric Constant pi_g
 
 **Author:** C. Wayne Baker  
-**Date:** June 1, 2026  
-**Status:** Structural comparison / source and reproducibility archive
+**Date:** June 1, 2026; source updated November 2, 2026  
+**Status:** v1.1 source draft — PDF and checksums not yet rebuilt; not release-ready
 
 This repository contains the paper:
 
@@ -40,7 +40,7 @@ constructible without taking \(\pi\) as input.
 
 ## Main claim boundary
 
-The comparison is structural and complementary. It does not claim that fixed
+The comparison is structural and complementary. The revised source explicitly derives the Ramanujan summand ratio 1/99^4 (about 7.98 decimal digits per term asymptotically) and distinguishes it from N-Series fixed-depth orders 2, 4 and 6. It does not claim that fixed
 polygonal extrapolation is a modular transformation, that it matches the
 arithmetic efficiency of Ramanujan's series, or that \(\pi_g\) is numerically
 different from \(\pi\). The completed geometric limit satisfies
