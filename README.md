@@ -2,7 +2,7 @@
 
 **Author:** C. Wayne Baker  
 **Date:** June 1, 2026; source updated November 2, 2026  
-**Status:** Public v1.1 preprint — revised PDF and LaTeX synchronized; Zenodo deposit pending.
+**Status:** Published v1.1 preprint; Zenodo DOI [10.5281/zenodo.23888005](https://doi.org/10.5281/zenodo.23888005). Revised PDF and LaTeX synchronized.
 
 This repository contains the paper:
 
